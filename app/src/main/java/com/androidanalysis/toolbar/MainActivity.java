@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
-    Button btnMenuToolbar,btnCustomToolbar;
+    Button btnMenuToolbar, btnCustomToolbar, btnActionViews;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
         setUpButtons();
     }
-
 
 
     private void setUpToolbar() {
@@ -41,10 +40,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     private void setUpButtons() {
-       btnCustomToolbar = (Button)findViewById(R.id.btnCustomToolbar);
-       btnMenuToolbar = (Button)findViewById(R.id.btnMenuToolbar);
+        btnCustomToolbar = (Button) findViewById(R.id.btnCustomToolbar);
+        btnMenuToolbar = (Button) findViewById(R.id.btnMenuToolbar);
+        btnActionViews = (Button) findViewById(R.id.btnActionViews);
 
         btnCustomToolbar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +61,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        btnActionViews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ActionViewActionProvider.class);
+                startActivity(intent);
+            }
+        });
     }
 }
